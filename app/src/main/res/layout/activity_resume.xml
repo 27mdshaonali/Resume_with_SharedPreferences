@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="10dp"
+    android:paddingTop="20dp"
+    android:paddingEnd="10dp"
+    tools:context=".Resume">
+
+    <LinearLayout
+        android:id="@+id/adContainerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" />
+
+    <!--    Elements Area-->
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="50dp"
+        tools:ignore="UselessLeaf">
+
+        <LinearLayout
+            android:id="@+id/elementContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="HardcodedText">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Resume of"
+                    android:textColor="#1D1D1D"
+                    android:textSize="24sp"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+
+                <TextView
+                    android:id="@+id/userNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Name"
+                    android:textAllCaps="true"
+                    android:textColor="#1D1D1D"
+                    android:textSize="24sp"
+                    android:textStyle="bold|italic"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/black" />
+
+
+            <!--            Name-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Name :"
+                    android:textColor="#1D1D1D"
+                    android:textSize="24sp"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="name"
+                    android:textColor="#1D1D1D"
+                    android:textSize="24sp"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+            </LinearLayout>
+
+            <!--            Age-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Date of Birth :"
+                    android:textColor="#1D1D1D"
+                    android:textSize="24sp"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+
+                <TextView
+                    android:id="@+id/userDateOfBirth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="date of birth"
+                    android:textColor="#1D1D1D"
+                    android:textSize="24sp"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+            </LinearLayout>
+
+
+            <!--            Phone Number-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Phone Number :"
+                    android:textColor="#1D1D1D"
+                    android:textSize="24sp"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+
+                <TextView
+                    android:id="@+id/userPhoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="phone number"
+                    android:textColor="#1D1D1D"
+                    android:textSize="24sp"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+            </LinearLayout>
+
+
+
+            <Button
+                android:id="@+id/editData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Edit Data"
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/saveData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Save Data"
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/downloadResume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Download Resume"
+                android:textSize="22sp" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

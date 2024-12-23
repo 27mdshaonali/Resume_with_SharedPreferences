@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="10dp"
+    android:paddingTop="20dp"
+    android:paddingEnd="10dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/adContainerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" />
+
+    <!-- Elements Area-->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="50dp"
+        tools:ignore="UselessLeaf">
+
+        <LinearLayout
+            android:id="@+id/elementContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="HardcodedText">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Create your Resume"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold|italic"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/black" />
+
+            <!-- Applying Position -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Applying Position :"
+                    android:textColor="#1D1D1D"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+                <EditText
+                    android:id="@+id/applyingPosition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Android Developer"
+                    android:inputType="text"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    tools:ignore="Autofill,HardcodedText" />
+            </LinearLayout>
+
+            <!-- Name -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/nameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Applicant Name :"
+                    android:textColor="#1D1D1D"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Md. Shaon Ali"
+                    android:inputType="textPersonName"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    tools:ignore="Autofill,HardcodedText" />
+            </LinearLayout>
+
+            <!-- Email Address -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="E-Mail :"
+                    android:textColor="#1D1D1D"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="example@gmail.com"
+                    android:inputType="textEmailAddress"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    tools:ignore="Autofill,HardcodedText" />
+            </LinearLayout>
+
+            <!-- Educational Information -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Educational Information"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="ScrollViewCount">
+
+
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#ffffff"
+                    android:elevation="4dp"
+                    android:padding="8dp"
+                    android:stretchColumns="1">
+
+
+                    <!-- Row 1: Header -->
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/darker_gray" />
+
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            android:text="Degree"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            android:text="Department"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            android:text="Institution"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            android:text="Year"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            android:text="GPA/CGPA"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                    </TableRow>
+
+                    <!-- Horizontal Line after the header -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <!-- Row 2: Input Fields -->
+                    <TableRow>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Degree"
+                            android:inputType="text"
+                            android:padding="8dp"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Department"
+                            android:padding="8dp"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Institution"
+                            android:padding="8dp"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Year"
+                            android:inputType="number"
+                            android:padding="8dp"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Year"
+                            android:inputType="number"
+                            android:padding="8dp"
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                    </TableRow>
+
+                    <!-- Horizontal Line after the input fields -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <!-- Row 3: Input Fields -->
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/darker_gray" />
+
+                    <TableRow>
+
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Degree"
+                            android:padding="8dp"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Department"
+                            android:padding="8dp"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Institution"
+                            android:padding="8dp"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Year"
+                            android:inputType="number"
+                            android:padding="8dp"
+                            android:textSize="18sp" />
+
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Year"
+                            android:inputType="number"
+                            android:padding="8dp"
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+
+                    </TableRow>
+
+                    <!-- Horizontal Line after the input fields -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <!-- Row 4: Input Fields -->
+                    <TableRow>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Degree"
+                            android:padding="8dp"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Department"
+                            android:padding="8dp"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Institution"
+                            android:padding="8dp"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Year"
+                            android:inputType="number"
+                            android:padding="8dp"
+                            android:textSize="18sp" />
+
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Enter Year"
+                            android:inputType="number"
+                            android:padding="8dp"
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                    </TableRow>
+
+                    <!-- Horizontal Line after the input fields -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <!-- Add More Rows as Needed -->
+                </TableLayout>
+            </HorizontalScrollView>
+
+
+            <!-- Working Experience -->
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Do you have Work Experience ?"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_marginEnd="20dp"
+                    android:id="@+id/radioBtnYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radioBtnNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </RadioGroup>
+
+
+            <!-- Phone Number -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/phoneNumberText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Phone Number :"
+                    android:textColor="#1D1D1D"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+                <EditText
+                    android:id="@+id/phoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="phone number"
+                    android:inputType="numberDecimal"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    tools:ignore="Autofill,HardcodedText,TextFields" />
+            </LinearLayout>
+
+            <!-- Date of Birth -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/dateOfBirthText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Date of Birth :"
+                    android:textColor="#1D1D1D"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,InefficientWeight" />
+
+                <EditText
+                    android:id="@+id/dateOfBirth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="date of birth"
+                    android:inputType="text"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    tools:ignore="Autofill,HardcodedText,TextFields" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/saveData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Save Data"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/resumeActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Show Resume"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
