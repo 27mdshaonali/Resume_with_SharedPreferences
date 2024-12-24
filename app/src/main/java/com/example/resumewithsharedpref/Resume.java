@@ -19,6 +19,11 @@ public class Resume extends AppCompatActivity {
     public static String DATE_OF_BIRTH = "";
     public static int PHONE_NUMBER = 0;
 
+    public static String STARTING_DATE = "";
+    public static String ENDING_DATE = "";
+    public static String POSITION = "";
+    public static String JOB_RESPONSIBILITY = "";
+
     TextView userNameText, userName, userDateOfBirth, userPhoneNumber;
 
     Button editData,saveData, downloadResume;

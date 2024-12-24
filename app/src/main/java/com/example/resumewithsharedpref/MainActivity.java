@@ -1,24 +1,29 @@
 package com.example.resumewithsharedpref;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     RadioGroup radioGroup;
     RadioButton radioBtnYes, radioBtnNo;
+    TextView workExperence, workExperienceExample, education, educationExample;
     private EditText name, dateOfBirth, phoneNumber;
     private Button saveData, resumeActivity;
-
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
 
@@ -37,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
         saveData = findViewById(R.id.saveData);
         resumeActivity = findViewById(R.id.resumeActivity);
+
+
+        workExperienceExample = findViewById(R.id.workExperienceExample);
+
 
         preferences = getSharedPreferences("Resume", MODE_PRIVATE);
         editor = preferences.edit();
@@ -100,11 +109,62 @@ public class MainActivity extends AppCompatActivity {
         int radioBtnId = radioGroup.getCheckedRadioButtonId();
 
         if (radioBtnId == radioBtnYes.getId()) {
-            dateOfBirth.setText("");
-            phoneNumber.setText("01711111111");
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            LayoutInflater inflater;
+            inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = inflater.inflate(R.layout.work_experence, null);
+
+            @SuppressLint({"MissingInflatedId", "LocalSuppress"}) EditText startingDate = view.findViewById(R.id.startingDate);
+            @SuppressLint({"MissingInflatedId", "LocalSuppress"}) EditText endingDate = view.findViewById(R.id.endingDate);
+            @SuppressLint({"MissingInflatedId", "LocalSuppress"}) EditText position = view.findViewById(R.id.position);
+            @SuppressLint({"MissingInflatedId", "LocalSuppress"}) EditText jobResponsibility = view.findViewById(R.id.jobResponsibility);
+
+            @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnSaveExperience = view.findViewById(R.id.btnSaveExperience);
+
+            builder.setView(view);
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+            btnSaveExperience.setOnClickListener(View -> {
+
+                String startingDateValue = startingDate.getText().toString();
+                String endingDateValue = endingDate.getText().toString();
+                String positionValue = position.getText().toString();
+                String jobResponsibilityValue = jobResponsibility.getText().toString();
+
+                if (startingDateValue.isEmpty() || endingDateValue.isEmpty() || positionValue.isEmpty() || jobResponsibilityValue.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                editor.putString("startingDate", startingDateValue);
+                editor.putString("endingDate", endingDateValue);
+                editor.putString("position", positionValue);
+                editor.putString("jobResponsibility", jobResponsibilityValue);
+                editor.apply();
+
+                String formattedExperience = "Position: " + positionValue + "\n" + "Starting Date: " + startingDateValue + "\n" + "Ending Date: " + endingDateValue + "\n" + "Responsibilities: " + jobResponsibilityValue;
+                workExperienceExample.setText(formattedExperience);
+
+                Resume.STARTING_DATE = startingDateValue;
+                Resume.ENDING_DATE = endingDateValue;
+                Resume.POSITION = positionValue;
+                Resume.JOB_RESPONSIBILITY = jobResponsibilityValue;
+
+                // I want that If my user click on "Save Experience" button that time user given info will save with workExperienceExample in my this activity. I want to set all info as I designed in "work_experence.xml" layout.Thanks.
+
+                dialog.dismiss();
+
+            });
+
+
         } else if (radioBtnId == radioBtnNo.getId()) {
-            phoneNumber.setText("");
-            dateOfBirth.setText("27/01/2004");
+
+            workExperienceExample.setText("I have no work experience.");
+
+            Toast.makeText(this, "No", Toast.LENGTH_SHORT).show();
 
         }
 

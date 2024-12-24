@@ -508,7 +508,7 @@
                 android:layout_marginTop="20dp"
                 android:text="Do you have Work Experience ?"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <RadioGroup
                 android:id="@+id/radioGroup"
@@ -517,10 +517,10 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:layout_marginEnd="20dp"
                     android:id="@+id/radioBtnYes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
                     android:text="Yes"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -534,6 +534,20 @@
                     android:textStyle="bold" />
 
             </RadioGroup>
+
+
+            <!-- Work Experience Example -->
+
+            <TextView
+                android:id="@+id/workExperienceExample"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:text="Work Experience Example"
+                android:textColor="#1D1D1D"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText,InefficientWeight" />
 
 
             <!-- Phone Number -->
