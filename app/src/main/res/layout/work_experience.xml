@@ -190,9 +190,32 @@
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray" />
 
+
+
+
         </TableLayout>
 
     </HorizontalScrollView>
+
+    <soup.neumorphism.NeumorphCardView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:neumorph_backgroundColor="@color/white"
+        app:neumorph_shapeType="flat"
+        >
+
+        <soup.neumorphism.NeumorphTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="8dp"
+            app:neumorph_shadowElevation="1dp"
+            android:text="Neumorphism TextView"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText" />
+
+    </soup.neumorphism.NeumorphCardView>
 
 
     <Button
