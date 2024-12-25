@@ -1,0 +1,40 @@
+<!-- New layout for saved experience -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/savedStartingDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Starting Date: "
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/savedEndingDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ending Date: "
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/savedPosition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Position: "
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/savedJobResponsibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Job Responsibility: "
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+</LinearLayout>

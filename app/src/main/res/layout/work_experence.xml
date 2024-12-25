@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingStart="10dp"
     android:paddingTop="15dp"
+    android:paddingEnd="10dp"
     android:paddingBottom="18dp"
-    app:circularflow_radiusInDP="10"
-    android:paddingEnd="10dp">
+    app:circularflow_radiusInDP="10">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:gravity="start"
+        android:padding="8dp"
+        android:text="Add Work Experience :"
+        android:textSize="24sp"
+        tools:ignore="HardcodedText" />
 
     <HorizontalScrollView
         android:layout_width="wrap_content"
@@ -18,6 +28,7 @@
 
 
         <TableLayout
+            android:id="@+id/tableLayoutView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#ffffff"
@@ -26,15 +37,6 @@
             android:stretchColumns="1"
             android:weightSum="4">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="start"
-                android:padding="8dp"
-                android:layout_marginBottom="10dp"
-                android:text="Add Work Experience :"
-                android:textSize="24sp"
-                tools:ignore="HardcodedText" />
 
             <!-- Row 1: Header -->
             <View
@@ -67,8 +69,8 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:gravity="start"
-                    android:hint="starting date"
-                    android:inputType="date"
+                    android:hint="DD/MM/YYYY"
+                    android:inputType="text|date"
                     android:padding="8dp"
                     android:textSize="18sp"
                     tools:ignore="Autofill,HardcodedText" />
@@ -89,8 +91,8 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:gravity="start"
-                    android:hint="ending date"
-                    android:inputType="date"
+                    android:hint="DD/MM/YYYY"
+                    android:inputType="text|date"
                     android:padding="8dp"
                     android:textSize="18sp"
                     tools:ignore="Autofill,HardcodedText" />
@@ -194,12 +196,12 @@
 
 
     <Button
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
         android:id="@+id/btnSaveExperience"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
         android:text="Save Experience"
         android:textSize="18sp"
         tools:ignore="HardcodedText" />

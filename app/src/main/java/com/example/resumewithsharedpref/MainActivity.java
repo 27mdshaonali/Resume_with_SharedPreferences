@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -21,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     RadioGroup radioGroup;
     RadioButton radioBtnYes, radioBtnNo;
-    TextView workExperence, workExperienceExample, education, educationExample;
+    TextView workExperence, applyingPositionText, education, educationExample;
+    LinearLayout workExperienceExample;
     private EditText name, dateOfBirth, phoneNumber;
     private Button saveData, resumeActivity;
     private SharedPreferences preferences;
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         saveData = findViewById(R.id.saveData);
         resumeActivity = findViewById(R.id.resumeActivity);
+
+        applyingPositionText = findViewById(R.id.applyingPositionText);
 
 
         workExperienceExample = findViewById(R.id.workExperienceExample);
@@ -145,24 +149,37 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString("jobResponsibility", jobResponsibilityValue);
                 editor.apply();
 
-                String formattedExperience = "Position: " + positionValue + "\n" + "Starting Date: " + startingDateValue + "\n" + "Ending Date: " + endingDateValue + "\n" + "Responsibilities: " + jobResponsibilityValue;
-                workExperienceExample.setText(formattedExperience);
+                // Inflate the layout dynamically
+                LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
+                View savedExperienceView = layoutInflater.inflate(R.layout.saved_experience, null);
+
+
+                // Populate the fields
+                TextView savedStartingDate = savedExperienceView.findViewById(R.id.savedStartingDate);
+                TextView savedEndingDate = savedExperienceView.findViewById(R.id.savedEndingDate);
+                TextView savedPosition = savedExperienceView.findViewById(R.id.savedPosition);
+                TextView savedJobResponsibility = savedExperienceView.findViewById(R.id.savedJobResponsibility);
+
+                savedStartingDate.setText("Starting Date: " + startingDateValue);
+                savedEndingDate.setText("Ending Date: " + endingDateValue);
+                savedPosition.setText("Position: " + positionValue);
+                savedJobResponsibility.setText("Responsibilities: " + jobResponsibilityValue);
+
+
+                // Replace the existing view with this new layout
+                workExperienceExample.removeAllViews(); // Clear the current content
+                workExperienceExample.addView(savedExperienceView); // Add the updated table layout
 
                 Resume.STARTING_DATE = startingDateValue;
                 Resume.ENDING_DATE = endingDateValue;
                 Resume.POSITION = positionValue;
                 Resume.JOB_RESPONSIBILITY = jobResponsibilityValue;
 
-                // I want that If my user click on "Save Experience" button that time user given info will save with workExperienceExample in my this activity. I want to set all info as I designed in "work_experence.xml" layout.Thanks.
-
                 dialog.dismiss();
-
             });
 
 
         } else if (radioBtnId == radioBtnNo.getId()) {
-
-            workExperienceExample.setText("I have no work experience.");
 
             Toast.makeText(this, "No", Toast.LENGTH_SHORT).show();
 
