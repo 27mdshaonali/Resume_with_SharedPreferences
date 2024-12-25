@@ -252,13 +252,15 @@
                     <TableRow>
 
                         <EditText
+                            android:id="@+id/honsDegree"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Degree"
                             android:inputType="text"
                             android:padding="8dp"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
 
                         <View
                             android:layout_width="1dp"
@@ -266,6 +268,7 @@
                             android:background="@android:color/darker_gray" />
 
                         <EditText
+                            android:id="@+id/honsDepartment"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
@@ -279,12 +282,15 @@
                             android:background="@android:color/darker_gray" />
 
                         <EditText
+                            android:id="@+id/honsInstitution"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Institution"
+                            android:inputType="text"
                             android:padding="8dp"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            tools:ignore="Autofill,TextFields" />
 
                         <View
                             android:layout_width="1dp"
@@ -292,13 +298,15 @@
                             android:background="@android:color/darker_gray" />
 
                         <EditText
+                            android:id="@+id/honsYear"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Year"
-                            android:inputType="number"
+                            android:inputType="text|numberDecimal"
                             android:padding="8dp"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
 
                         <View
                             android:layout_width="1dp"
@@ -306,10 +314,11 @@
                             android:background="@android:color/darker_gray" />
 
                         <EditText
+                            android:id="@+id/honsCGPA"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
-                            android:hint="Enter Year"
+                            android:hint="Enter GPA/CGPA"
                             android:inputType="number"
                             android:padding="8dp"
                             android:textSize="18sp"
@@ -338,12 +347,15 @@
 
 
                         <EditText
+                            android:id="@+id/hscDegree"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Degree"
+                            android:inputType="text"
                             android:padding="8dp"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
 
                         <View
                             android:layout_width="1dp"
@@ -351,12 +363,15 @@
                             android:background="@android:color/darker_gray" />
 
                         <EditText
+                            android:id="@+id/hscDepartment"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Department"
+                            android:inputType="text"
                             android:padding="8dp"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
 
                         <View
                             android:layout_width="1dp"
@@ -364,12 +379,15 @@
                             android:background="@android:color/darker_gray" />
 
                         <EditText
+                            android:id="@+id/hscInstitution"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Institution"
+                            android:inputType="text"
                             android:padding="8dp"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
 
                         <View
                             android:layout_width="1dp"
@@ -377,13 +395,15 @@
                             android:background="@android:color/darker_gray" />
 
                         <EditText
+                            android:id="@+id/hscYear"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Year"
-                            android:inputType="number"
+                            android:inputType="text|numberDecimal"
                             android:padding="8dp"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
 
 
                         <View
@@ -392,10 +412,11 @@
                             android:background="@android:color/darker_gray" />
 
                         <EditText
+                            android:id="@+id/hscCGPA"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
-                            android:hint="Enter Year"
+                            android:hint="Enter GPA"
                             android:inputType="number"
                             android:padding="8dp"
                             android:textSize="18sp"
@@ -419,12 +440,15 @@
                     <TableRow>
 
                         <EditText
+                            android:id="@+id/sscDegree"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Degree"
+                            android:inputType="text"
                             android:padding="8dp"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
 
                         <View
                             android:layout_width="1dp"
@@ -432,12 +456,15 @@
                             android:background="@android:color/darker_gray" />
 
                         <EditText
+                            android:id="@+id/sscDepartment"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Department"
+                            android:inputType="text"
                             android:padding="8dp"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
 
                         <View
                             android:layout_width="1dp"
@@ -445,12 +472,15 @@
                             android:background="@android:color/darker_gray" />
 
                         <EditText
+                            android:id="@+id/sscInstitution"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Institution"
+                            android:inputType="text"
                             android:padding="8dp"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
 
                         <View
                             android:layout_width="1dp"
@@ -458,13 +488,15 @@
                             android:background="@android:color/darker_gray" />
 
                         <EditText
+                            android:id="@+id/sscYear"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Year"
-                            android:inputType="number"
+                            android:inputType="text|numberDecimal"
                             android:padding="8dp"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
 
 
                         <View
@@ -473,11 +505,12 @@
                             android:background="@android:color/darker_gray" />
 
                         <EditText
+                            android:id="@+id/sscCGPA"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
-                            android:hint="Enter Year"
-                            android:inputType="number"
+                            android:hint="Enter GPA"
+                            android:inputType="text|numberDecimal"
                             android:padding="8dp"
                             android:textSize="18sp"
                             tools:ignore="Autofill" />
@@ -543,9 +576,8 @@
                 android:id="@+id/workExperienceExample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:orientation="vertical">
-            </LinearLayout>
+                android:orientation="vertical"
+                android:padding="5dp"></LinearLayout>
 
 
             <!-- Phone Number -->
@@ -616,7 +648,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:text="Save Data"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:ignore="TooManyViews" />
 
             <Button
                 android:id="@+id/resumeActivity"

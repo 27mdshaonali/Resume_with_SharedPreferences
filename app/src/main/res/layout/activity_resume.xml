@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/resumeActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingStart="10dp"
@@ -9,29 +9,19 @@
     android:paddingEnd="10dp"
     tools:context=".Resume">
 
-    <LinearLayout
-        android:id="@+id/adContainerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical" />
-
-    <!--    Elements Area-->
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingBottom="50dp"
-        tools:ignore="UselessLeaf">
+        tools:ignore="UselessParent">
 
         <LinearLayout
-            android:id="@+id/elementContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:ignore="HardcodedText">
+            android:orientation="vertical">
 
+            <!-- Resume Header -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,11 +35,10 @@
                     android:text="Resume of"
                     android:textColor="#1D1D1D"
                     android:textSize="24sp"
-                    tools:ignore="HardcodedText,InefficientWeight" />
-
+                    tools:ignore="HardcodedText" />
 
                 <TextView
-                    android:id="@+id/userNameText"
+                    android:id="@+id/userName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
@@ -58,85 +47,72 @@
                     android:textColor="#1D1D1D"
                     android:textSize="24sp"
                     android:textStyle="bold|italic"
-                    tools:ignore="HardcodedText,InefficientWeight" />
+                    tools:ignore="HardcodedText" />
 
+                <EditText
+                    android:id="@+id/editUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Enter Name"
+                    android:inputType="textPersonName"
+                    android:padding="5dp"
+                    android:textSize="24sp"
+                    android:visibility="gone"
+                    tools:ignore="Autofill,HardcodedText" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="5dp"
-                android:background="@color/black" />
+                android:background="@android:color/darker_gray" />
 
-
-            <!--            Name-->
-
+            <!-- Applying Position -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:text="Name :"
+                    android:text="Applying Position:"
                     android:textColor="#1D1D1D"
-                    android:textSize="24sp"
-                    tools:ignore="HardcodedText,InefficientWeight" />
-
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
-                    android:id="@+id/userName"
-                    android:layout_width="match_parent"
+                    android:textIsSelectable="false"
+                    android:id="@+id/applyingPosition"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:hint="Android Developer"
                     android:padding="5dp"
-                    android:text="name"
-                    android:textColor="#1D1D1D"
-                    android:textSize="24sp"
-                    tools:ignore="HardcodedText,InefficientWeight" />
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
 
-            </LinearLayout>
-
-            <!--            Age-->
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/editApplyingPosition"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Enter Position"
+                    android:inputType="text"
                     android:padding="5dp"
-                    android:text="Date of Birth :"
-                    android:textColor="#1D1D1D"
-                    android:textSize="24sp"
-                    tools:ignore="HardcodedText,InefficientWeight" />
-
-
-                <TextView
-                    android:id="@+id/userDateOfBirth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:padding="5dp"
-                    android:text="date of birth"
-                    android:textColor="#1D1D1D"
-                    android:textSize="24sp"
-                    tools:ignore="HardcodedText,InefficientWeight" />
-
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    tools:ignore="Autofill,HardcodedText" />
             </LinearLayout>
 
 
-            <!--            Phone Number-->
-
+            <!-- Applicant Name -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,38 +120,180 @@
                 android:weightSum="2">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:text="Phone Number :"
+                    android:text="Applicant Name:"
                     android:textColor="#1D1D1D"
-                    android:textSize="24sp"
-                    tools:ignore="HardcodedText,InefficientWeight" />
-
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
+                    android:textIsSelectable="false"
+                    android:id="@+id/applicantName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="John Doe"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/editApplicantName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Enter Applicant Name"
+                    android:inputType="textPersonName"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    tools:ignore="Autofill,HardcodedText" />
+            </LinearLayout>
+
+            <!-- Email Address -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="E-Mail:"
+                    android:textColor="#1D1D1D"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:textIsSelectable="true"
+                    android:id="@+id/userEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:autoLink="email"
+                    android:hint="example@gmail.com"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/editEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Enter Email"
+                    android:inputType="textEmailAddress"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    tools:ignore="Autofill,HardcodedText" />
+            </LinearLayout>
+
+            <!-- Phone Number -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Phone Number:"
+                    android:textColor="#1D1D1D"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:textIsSelectable="true"
                     android:id="@+id/userPhoneNumber"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:autoLink="phone"
+                    android:hint="1234567890"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/editPhoneNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Enter Phone Number"
+                    android:inputType="textPhonetic"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    tools:ignore="Autofill,HardcodedText,TextFields" />
+            </LinearLayout>
+
+            <!-- Date of Birth -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:text="phone number"
+                    android:text="Date of Birth:"
                     android:textColor="#1D1D1D"
-                    android:textSize="24sp"
-                    tools:ignore="HardcodedText,InefficientWeight" />
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
 
+                <TextView
+                    android:textIsSelectable="false"
+                    android:id="@+id/userDateOfBirth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="DD/MM/YYYY"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/editDateOfBirth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Enter DOB"
+                    android:inputType="text"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    tools:ignore="Autofill,HardcodedText,TextFields" />
             </LinearLayout>
 
-
-
+            <!-- Buttons -->
             <Button
                 android:id="@+id/editData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:text="Edit Data"
-                android:textSize="22sp" />
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/saveData"
@@ -183,19 +301,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Save Data"
-                android:textSize="22sp" />
-
-            <Button
-                android:id="@+id/downloadResume"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Download Resume"
-                android:textSize="22sp" />
-
-
+                android:textSize="18sp"
+                android:visibility="gone"
+                tools:ignore="HardcodedText" />
         </LinearLayout>
-
     </ScrollView>
-
 </RelativeLayout>
