@@ -191,42 +191,34 @@
                 android:background="@android:color/darker_gray" />
 
 
-
-
         </TableLayout>
 
     </HorizontalScrollView>
 
-    <soup.neumorphism.NeumorphCardView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:neumorph_backgroundColor="@color/white"
-        app:neumorph_shapeType="flat"
-        >
 
-        <soup.neumorphism.NeumorphTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:padding="8dp"
-            app:neumorph_shadowElevation="1dp"
-            android:text="Neumorphism TextView"
-            android:textSize="24sp"
-            tools:ignore="HardcodedText" />
-
-    </soup.neumorphism.NeumorphCardView>
-
-
-    <Button
-        android:id="@+id/btnSaveExperience"
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/saveExperience"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:text="Save Experience"
-        android:textSize="18sp"
-        tools:ignore="HardcodedText" />
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:neumorph_backgroundColor="#0803A9F4"
+        app:neumorph_insetBottom="8dp"
+        app:neumorph_insetTop="10dp"
+        app:neumorph_lightSource="leftTop"
+        app:neumorph_shadowColorDark="#B8B5B5"
+        app:neumorph_shadowColorLight="#FFFFFF"
+        app:neumorph_shadowElevation="6dp"
+        app:neumorph_shapeType="flat"
+        app:neumorph_strokeColor="@color/black"
+        tools:ignore="HardcodedText,UnusedAttribute" />
+
 
 </LinearLayout>

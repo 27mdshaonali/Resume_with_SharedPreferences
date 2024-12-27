@@ -87,13 +87,13 @@
                     tools:ignore="HardcodedText" />
 
                 <TextView
-                    android:textIsSelectable="false"
                     android:id="@+id/applyingPosition"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Android Developer"
                     android:padding="5dp"
+                    android:textIsSelectable="false"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText" />
 
@@ -130,13 +130,13 @@
                     tools:ignore="HardcodedText" />
 
                 <TextView
-                    android:textIsSelectable="false"
                     android:id="@+id/applicantName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="John Doe"
                     android:padding="5dp"
+                    android:textIsSelectable="false"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText" />
 
@@ -173,7 +173,6 @@
                     tools:ignore="HardcodedText" />
 
                 <TextView
-                    android:textIsSelectable="true"
                     android:id="@+id/userEmail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -181,6 +180,7 @@
                     android:autoLink="email"
                     android:hint="example@gmail.com"
                     android:padding="5dp"
+                    android:textIsSelectable="true"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText" />
 
@@ -197,6 +197,34 @@
                     android:visibility="gone"
                     tools:ignore="Autofill,HardcodedText" />
             </LinearLayout>
+
+
+            <!--            Education Details-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Education Details"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="8dp"
+                    tools:ignore="HardcodedText" />
+
+                <LinearLayout
+                    android:id="@+id/educationInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+            </LinearLayout>
+
+
 
             <!-- Phone Number -->
             <LinearLayout
@@ -217,7 +245,6 @@
                     tools:ignore="HardcodedText" />
 
                 <TextView
-                    android:textIsSelectable="true"
                     android:id="@+id/userPhoneNumber"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -225,6 +252,7 @@
                     android:autoLink="phone"
                     android:hint="1234567890"
                     android:padding="5dp"
+                    android:textIsSelectable="true"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText" />
 
@@ -261,13 +289,13 @@
                     tools:ignore="HardcodedText" />
 
                 <TextView
-                    android:textIsSelectable="false"
                     android:id="@+id/userDateOfBirth"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="DD/MM/YYYY"
                     android:padding="5dp"
+                    android:textIsSelectable="false"
                     android:textSize="18sp"
                     tools:ignore="HardcodedText" />
 
