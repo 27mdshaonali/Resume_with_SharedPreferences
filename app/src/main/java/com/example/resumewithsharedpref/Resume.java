@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -63,8 +62,6 @@ public class Resume extends AppCompatActivity {
         saveDataButton = findViewById(R.id.saveData);
 
 
-
-
         //Setting Date from Previous Activity
 
         userName.setText(NAME);
@@ -73,8 +70,6 @@ public class Resume extends AppCompatActivity {
         userEmail.setText(EMAIL);
         userPhoneNumber.setText(PHONE_NUMBER);
         userDateOfBirth.setText(DATE_OF_BIRTH);
-
-        Toast.makeText(this, "From "+applyingPosition, Toast.LENGTH_SHORT).show();
 
 
         // Set initial visibility for edit fields

@@ -273,8 +273,10 @@
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Department"
+                            android:inputType="text"
                             android:padding="8dp"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            tools:ignore="Autofill" />
 
                         <View
                             android:layout_width="1dp"
@@ -303,7 +305,7 @@
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Year"
-                            android:inputType="text|numberDecimal"
+                            android:inputType="text"
                             android:padding="8dp"
                             android:textSize="18sp"
                             tools:ignore="Autofill" />
@@ -319,7 +321,7 @@
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter GPA/CGPA"
-                            android:inputType="number"
+                            android:inputType="text"
                             android:padding="8dp"
                             android:textSize="18sp"
                             tools:ignore="Autofill" />
@@ -400,7 +402,7 @@
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Year"
-                            android:inputType="text|numberDecimal"
+                            android:inputType="text"
                             android:padding="8dp"
                             android:textSize="18sp"
                             tools:ignore="Autofill" />
@@ -417,7 +419,7 @@
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter GPA"
-                            android:inputType="number"
+                            android:inputType="text"
                             android:padding="8dp"
                             android:textSize="18sp"
                             tools:ignore="Autofill" />
@@ -493,7 +495,7 @@
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter Year"
-                            android:inputType="text|numberDecimal"
+                            android:inputType="text"
                             android:padding="8dp"
                             android:textSize="18sp"
                             tools:ignore="Autofill" />
@@ -510,7 +512,7 @@
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="Enter GPA"
-                            android:inputType="text|numberDecimal"
+                            android:inputType="text"
                             android:padding="8dp"
                             android:textSize="18sp"
                             tools:ignore="Autofill" />
@@ -577,7 +579,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="5dp"></LinearLayout>
+                android:padding="5dp" />
 
 
             <!-- Phone Number -->
@@ -605,7 +607,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:hint="phone number"
-                    android:inputType="numberDecimal"
+                    android:inputType="text|numberDecimal"
                     android:padding="5dp"
                     android:textSize="18sp"
                     tools:ignore="Autofill,HardcodedText,TextFields" />
