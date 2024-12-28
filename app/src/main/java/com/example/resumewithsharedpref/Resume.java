@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,6 +32,8 @@ public class Resume extends AppCompatActivity {
     public static String SSC_INSTITUTION = "";
     public static String SSC_YEAR = "";
     public static String SSC_CGPA = "";
+
+    public static String TABLE_LAYOUT_VIEW;
 
 
     boolean isEditMode = false;
@@ -64,7 +66,6 @@ public class Resume extends AppCompatActivity {
 
 
 
-
         //Setting Date from Previous Activity
 
         userName.setText(NAME);
@@ -73,8 +74,6 @@ public class Resume extends AppCompatActivity {
         userEmail.setText(EMAIL);
         userPhoneNumber.setText(PHONE_NUMBER);
         userDateOfBirth.setText(DATE_OF_BIRTH);
-
-        Toast.makeText(this, "From "+applyingPosition, Toast.LENGTH_SHORT).show();
 
 
         // Set initial visibility for edit fields
@@ -151,4 +150,7 @@ public class Resume extends AppCompatActivity {
         userPhoneNumber.setText(editPhoneNumber.getText().toString());
         userDateOfBirth.setText(editDateOfBirth.getText().toString());
     }
+
+
+
 }

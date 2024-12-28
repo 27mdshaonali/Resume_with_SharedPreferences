@@ -1,10 +1,12 @@
 package com.example.resumewithsharedpref;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -12,27 +14,27 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import soup.neumorphism.NeumorphButton;
-
 public class MainActivity extends AppCompatActivity {
 
-    private EditText name, dateOfBirth, phoneNumber, applyingPosition, email;
-    private EditText honsDegree, honsDepartment, honsInstitution, honsYear, honsCGPA;
-    private EditText hscDegree, hscDepartment, hscInstitution, hscYear, hscCGPA;
-    private EditText sscDegree, sscDepartment, sscInstitution, sscYear, sscCGPA;
-    private Button saveData, resumeActivity;
-    private RadioGroup radioGroup;
     RadioButton radioBtnYes, radioBtnNo;
     LinearLayout workExperienceExample;
+    Button saveData, resumeActivity;
+    RadioGroup radioGroup;
+    EditText name, dateOfBirth, phoneNumber, applyingPosition, email;
+    EditText honsDegree, honsDepartment, honsInstitution, honsYear, honsCGPA;
+    EditText hscDegree, hscDepartment, hscInstitution, hscYear, hscCGPA;
+    EditText sscDegree, sscDepartment, sscInstitution, sscYear, sscCGPA;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
-    private SharedPreferences preferences;
-    private SharedPreferences.Editor editor;
+    TableLayout tableLayoutView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +44,15 @@ public class MainActivity extends AppCompatActivity {
         // Initialize components
         initializeComponents();
 
-        // Set up listeners
-        setupListeners();
+        radioGroup.setOnCheckedChangeListener((group, checkedId) -> radioGroupOnClick());
+
+        // Set click listeners
+        saveData.setOnClickListener(view -> saveDataToSharedPreferences());
+
+        resumeActivity.setOnClickListener(view -> {
+            shareDataToResumeActivity();
+            startActivity(new Intent(MainActivity.this, Resume.class));
+        });
     }
 
     private void initializeComponents() {
@@ -82,87 +91,145 @@ public class MainActivity extends AppCompatActivity {
         workExperienceExample = findViewById(R.id.workExperienceExample);
 
         // Initialize SharedPreferences
-        preferences = getSharedPreferences("Resume", MODE_PRIVATE);
+        preferences = getSharedPreferences("ResumeData", MODE_PRIVATE);
         editor = preferences.edit();
 
-        // Pre-fill fields with existing data
-        prefillFields();
+        tableLayoutView = findViewById(R.id.tableLayoutView);
     }
 
-    private void prefillFields() {
-        name.setText(preferences.getString("name", ""));
-        dateOfBirth.setText(preferences.getString("dateOfBirth", ""));
-        phoneNumber.setText(preferences.getString("phoneNumber", ""));
-        applyingPosition.setText(preferences.getString("applyingPosition", ""));
-        email.setText(preferences.getString("email", ""));
-        honsDegree.setText(preferences.getString("honsDegree", ""));
-        honsDepartment.setText(preferences.getString("honsDepartment", ""));
-        honsInstitution.setText(preferences.getString("honsInstitution", ""));
-        honsYear.setText(preferences.getString("honsYear", ""));
-        honsCGPA.setText(preferences.getString("honsCGPA", ""));
-        hscDegree.setText(preferences.getString("hscDegree", ""));
-        hscDepartment.setText(preferences.getString("hscDepartment", ""));
-        hscInstitution.setText(preferences.getString("hscInstitution", ""));
-        hscYear.setText(preferences.getString("hscYear", ""));
-        hscCGPA.setText(preferences.getString("hscCGPA", ""));
-        sscDegree.setText(preferences.getString("sscDegree", ""));
-        sscDepartment.setText(preferences.getString("sscDepartment", ""));
-        sscInstitution.setText(preferences.getString("sscInstitution", ""));
-        sscYear.setText(preferences.getString("sscYear", ""));
-        sscCGPA.setText(preferences.getString("sscCGPA", ""));
-    }
+    private void saveDataToSharedPreferences() {
+        // Save data to SharedPreferences only if fields are not empty or changed
+        saveIfChanged("name", name);
+        saveIfChanged("dateOfBirth", dateOfBirth);
+        saveIfChanged("phoneNumber", phoneNumber);
+        saveIfChanged("applyingPosition", applyingPosition);
+        saveIfChanged("email", email);
+        saveIfChanged("honsDegree", honsDegree);
+        saveIfChanged("honsDepartment", honsDepartment);
+        saveIfChanged("honsInstitution", honsInstitution);
+        saveIfChanged("honsYear", honsYear);
+        saveIfChanged("honsCGPA", honsCGPA);
+        saveIfChanged("hscDegree", hscDegree);
+        saveIfChanged("hscDepartment", hscDepartment);
+        saveIfChanged("hscInstitution", hscInstitution);
+        saveIfChanged("hscYear", hscYear);
+        saveIfChanged("hscCGPA", hscCGPA);
+        saveIfChanged("sscDegree", sscDegree);
+        saveIfChanged("sscDepartment", sscDepartment);
+        saveIfChanged("sscInstitution", sscInstitution);
+        saveIfChanged("sscYear", sscYear);
+        saveIfChanged("sscCGPA", sscCGPA);
 
-    private void setupListeners() {
-        saveData.setOnClickListener(v -> saveFormData());
-        resumeActivity.setOnClickListener(v -> navigateToResumeActivity());
-
-        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
-            if (checkedId == R.id.radioBtnYes) {
-                Toast.makeText(this, "Work experience selected.", Toast.LENGTH_SHORT).show();
-            } else if (checkedId == R.id.radioBtnNo) {
-                Toast.makeText(this, "No work experience selected.", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void saveFormData() {
-        updateFieldIfChanged("name", name);
-        updateFieldIfChanged("dateOfBirth", dateOfBirth);
-        updateFieldIfChanged("phoneNumber", phoneNumber);
-        updateFieldIfChanged("applyingPosition", applyingPosition);
-        updateFieldIfChanged("email", email);
-        updateFieldIfChanged("honsDegree", honsDegree);
-        updateFieldIfChanged("honsDepartment", honsDepartment);
-        updateFieldIfChanged("honsInstitution", honsInstitution);
-        updateFieldIfChanged("honsYear", honsYear);
-        updateFieldIfChanged("honsCGPA", honsCGPA);
-        updateFieldIfChanged("hscDegree", hscDegree);
-        updateFieldIfChanged("hscDepartment", hscDepartment);
-        updateFieldIfChanged("hscInstitution", hscInstitution);
-        updateFieldIfChanged("hscYear", hscYear);
-        updateFieldIfChanged("hscCGPA", hscCGPA);
-        updateFieldIfChanged("sscDegree", sscDegree);
-        updateFieldIfChanged("sscDepartment", sscDepartment);
-        updateFieldIfChanged("sscInstitution", sscInstitution);
-        updateFieldIfChanged("sscYear", sscYear);
-        updateFieldIfChanged("sscCGPA", sscCGPA);
+        editor.putString("tableLayoutView", tableLayoutView.toString());
 
         editor.apply();
-
-        Toast.makeText(this, "Data saved successfully.", Toast.LENGTH_SHORT).show();
     }
 
-    private void updateFieldIfChanged(String key, EditText field) {
-        String currentValue = preferences.getString(key, "");
-        String newValue = field.getText().toString();
+    private void saveIfChanged(String key, EditText field) {
+        String currentValue = preferences.getString(key, "");  // Get existing value
+        String newValue = field.getText().toString().trim();   // Get new value
 
+        // Only update if new value is not empty and different from the existing value
         if (!TextUtils.isEmpty(newValue) && !newValue.equals(currentValue)) {
-            editor.putString(key, newValue);
+            editor.putString(key, newValue); // Save only if changed
         }
     }
 
-    private void navigateToResumeActivity() {
-        Intent intent = new Intent(MainActivity.this, Resume.class);
-        startActivity(intent);
+    private void shareDataToResumeActivity() {
+        Resume.NAME = preferences.getString("name", "");
+        Resume.DATE_OF_BIRTH = preferences.getString("dateOfBirth", "");
+        Resume.PHONE_NUMBER = preferences.getString("phoneNumber", "");
+        Resume.APPLYING_POSITION = preferences.getString("applyingPosition", "");
+        Resume.EMAIL = preferences.getString("email", "");
+        Resume.HONS_DEGREE = preferences.getString("honsDegree", "");
+        Resume.HONS_DEPARTMENT = preferences.getString("honsDepartment", "");
+        Resume.HONS_INSTITUTION = preferences.getString("honsInstitution", "");
+        Resume.HONS_YEAR = preferences.getString("honsYear", "");
+        Resume.HONS_CGPA = preferences.getString("honsCGPA", "");
+        Resume.HSC_DEGREE = preferences.getString("hscDegree", "");
+        Resume.HSC_DEPARTMENT = preferences.getString("hscDepartment", "");
+        Resume.HSC_INSTITUTION = preferences.getString("hscInstitution", "");
+        Resume.HSC_YEAR = preferences.getString("hscYear", "");
+        Resume.HSC_CGPA = preferences.getString("hscCGPA", "");
+        Resume.SSC_DEGREE = preferences.getString("sscDegree", "");
+        Resume.SSC_DEPARTMENT = preferences.getString("sscDepartment", "");
+        Resume.SSC_INSTITUTION = preferences.getString("sscInstitution", "");
+        Resume.SSC_YEAR = preferences.getString("sscYear", "");
+        Resume.SSC_CGPA = preferences.getString("sscCGPA", "");
+
+        Resume.TABLE_LAYOUT_VIEW = preferences.getString("tableLayoutView", "");
     }
+
+    @SuppressLint("SetTextI18n")
+    private void radioGroupOnClick() {
+        if (radioBtnYes.isChecked()) {
+
+            LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = layoutInflater.inflate(R.layout.work_experience, null);
+
+            EditText startingDate = view.findViewById(R.id.startingDate);
+            EditText endingDate = view.findViewById(R.id.endingDate);
+            EditText position = view.findViewById(R.id.position);
+            EditText jobResponsibility = view.findViewById(R.id.jobResponsibility);
+            Button saveExperience = view.findViewById(R.id.saveExperience);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setView(view);
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+            saveExperience.setOnClickListener(view1 -> {
+                try {
+                    String startingDateValue = startingDate.getText().toString();
+                    String endingDateValue = endingDate.getText().toString();
+                    String positionValue = position.getText().toString();
+                    String jobResponsibilityValue = jobResponsibility.getText().toString();
+
+                    if (!startingDateValue.isEmpty() && !endingDateValue.isEmpty() && !positionValue.isEmpty() && !jobResponsibilityValue.isEmpty()) {
+                        editor.putString("startingDate", startingDateValue);
+                        editor.putString("endingDate", endingDateValue);
+                        editor.putString("position", positionValue);
+                        editor.putString("jobResponsibility", jobResponsibilityValue);
+
+
+                        editor.apply();
+
+                        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                        View viewSaved = inflater.inflate(R.layout.saved_experience, null);
+
+                        TextView savedStartingDate = viewSaved.findViewById(R.id.savedStartingDate);
+                        TextView savedEndingDate = viewSaved.findViewById(R.id.savedEndingDate);
+                        TextView savedPosition = viewSaved.findViewById(R.id.savedPosition);
+                        TextView savedJobResponsibility = viewSaved.findViewById(R.id.savedJobResponsibility);
+
+                        savedStartingDate.setText("Starting Date: " + startingDateValue);
+                        savedEndingDate.setText("Ending Date: " + endingDateValue);
+                        savedPosition.setText("Position: " + positionValue);
+                        savedJobResponsibility.setText("Job Responsibility: " + jobResponsibilityValue);
+
+                        workExperienceExample.removeAllViews();
+
+                        workExperienceExample.addView(viewSaved);
+
+
+                        dialog.dismiss();  // Dismiss dialog only when the data is saved
+
+                    } else {
+                        Toast.makeText(this, "Please fill all input fields!", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    Log.e("MainActivity", "Error: ", e);
+                    Toast.makeText(this, "An error occurred", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            workExperienceExample.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "Yes", Toast.LENGTH_SHORT).show();
+        } else {
+            workExperienceExample.setVisibility(View.GONE);
+            Toast.makeText(this, "No", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 }
