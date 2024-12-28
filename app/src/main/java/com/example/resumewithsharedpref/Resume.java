@@ -1,12 +1,11 @@
 package com.example.resumewithsharedpref;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,13 +34,10 @@ public class Resume extends AppCompatActivity {
     public static String SSC_CGPA = "";
 
 
-
     boolean isEditMode = false;
     private TextView userName, applicantName, applyingPosition, userEmail, userPhoneNumber, userDateOfBirth;
     private EditText editUserName, editApplicantName, editApplyingPosition, editEmail, editPhoneNumber, editDateOfBirth;
     private Button editDataButton, saveDataButton;
-
-    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +61,8 @@ public class Resume extends AppCompatActivity {
 
         editDataButton = findViewById(R.id.editData);
         saveDataButton = findViewById(R.id.saveData);
-        preferences = getSharedPreferences("ResumeData", MODE_PRIVATE);
+
+
 
 
         //Setting Date from Previous Activity
@@ -76,6 +73,8 @@ public class Resume extends AppCompatActivity {
         userEmail.setText(EMAIL);
         userPhoneNumber.setText(PHONE_NUMBER);
         userDateOfBirth.setText(DATE_OF_BIRTH);
+
+        Toast.makeText(this, "From "+applyingPosition, Toast.LENGTH_SHORT).show();
 
 
         // Set initial visibility for edit fields
@@ -152,6 +151,4 @@ public class Resume extends AppCompatActivity {
         userPhoneNumber.setText(editPhoneNumber.getText().toString());
         userDateOfBirth.setText(editDateOfBirth.getText().toString());
     }
-
-
 }
