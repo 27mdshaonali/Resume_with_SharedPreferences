@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
     EditText sscDegree, sscDepartment, sscInstitution, sscYear, sscCGPA;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-
-    TableLayout tableLayoutView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         preferences = getSharedPreferences("ResumeData", MODE_PRIVATE);
         editor = preferences.edit();
 
-        tableLayoutView = findViewById(R.id.tableLayoutView);
+
     }
 
     private void saveDataToSharedPreferences() {
@@ -119,8 +116,6 @@ public class MainActivity extends AppCompatActivity {
         saveIfChanged("sscInstitution", sscInstitution);
         saveIfChanged("sscYear", sscYear);
         saveIfChanged("sscCGPA", sscCGPA);
-
-        editor.putString("tableLayoutView", tableLayoutView.toString());
 
         editor.apply();
     }
@@ -157,7 +152,8 @@ public class MainActivity extends AppCompatActivity {
         Resume.SSC_YEAR = preferences.getString("sscYear", "");
         Resume.SSC_CGPA = preferences.getString("sscCGPA", "");
 
-        Resume.TABLE_LAYOUT_VIEW = preferences.getString("tableLayoutView", "");
+        saveEducationDetails();
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -229,6 +225,84 @@ public class MainActivity extends AppCompatActivity {
             workExperienceExample.setVisibility(View.GONE);
             Toast.makeText(this, "No", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void educationDetails() {
+
+        String hoDegree = honsDegree.getText().toString();
+        String hoDepartment = honsDepartment.getText().toString();
+        String hoInstitution = honsInstitution.getText().toString();
+        String hoYear = honsYear.getText().toString();
+        String hoCgpa = honsCGPA.getText().toString();
+
+        String hsDegree = hscDegree.getText().toString();
+        String hsDepartment = hscDepartment.getText().toString();
+        String hsInstitution = hscInstitution.getText().toString();
+        String hsYear = hscYear.getText().toString();
+        String hsCgpa = hscCGPA.getText().toString();
+
+        String scDegree = sscDegree.getText().toString();
+        String scDepartment = sscDepartment.getText().toString();
+        String scInstitution = sscInstitution.getText().toString();
+        String scYear = sscYear.getText().toString();
+        String scCgpa = sscCGPA.getText().toString();
+
+        try {
+
+            if (!hoDegree.isEmpty() && !hoDepartment.isEmpty() && !hoInstitution.isEmpty() && !hoYear.isEmpty() && !hoCgpa.isEmpty()) {
+                editor.putString("hoDegree", hoDegree);
+                editor.putString("hoDepartment", hoDepartment);
+                editor.putString("hoInstitution", hoInstitution);
+                editor.putString("hoYear", hoYear);
+                editor.putString("hoCgpa", hoCgpa);
+                editor.apply();
+            }
+
+            if (!hsDegree.isEmpty() && !hsDepartment.isEmpty() && !hsInstitution.isEmpty() && !hsYear.isEmpty() && !hsCgpa.isEmpty()) {
+                editor.putString("hsDegree", hsDegree);
+                editor.putString("hsDepartment", hsDepartment);
+                editor.putString("hsInstitution", hsInstitution);
+                editor.putString("hsYear", hsYear);
+                editor.putString("hsCgpa", hsCgpa);
+                editor.apply();
+            }
+
+            if (!scDegree.isEmpty() && !scDepartment.isEmpty() && !scInstitution.isEmpty() && !scYear.isEmpty() && !scCgpa.isEmpty()) {
+                editor.putString("scDegree", scDegree);
+                editor.putString("scDepartment", scDepartment);
+                editor.putString("scInstitution", scInstitution);
+                editor.putString("scYear", scYear);
+                editor.putString("scCgpa", scCgpa);
+                editor.apply();
+            }
+
+        } catch (Exception e) {
+            Log.e("MainActivity", "Error: ", e);
+            Toast.makeText(this, "An error occurred", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public void saveEducationDetails() {
+        educationDetails();
+
+        Resume.HONS_DEGREE = preferences.getString("hoDegree", "");
+        Resume.HONS_DEPARTMENT = preferences.getString("hoDepartment", "");
+        Resume.HONS_INSTITUTION = preferences.getString("hoInstitution", "");
+        Resume.HONS_YEAR = preferences.getString("hoYear", "");
+        Resume.HONS_CGPA = preferences.getString("hoCgpa", "");
+        Resume.HSC_DEGREE = preferences.getString("hsDegree", "");
+        Resume.HSC_DEPARTMENT = preferences.getString("hsDepartment", "");
+        Resume.HSC_INSTITUTION = preferences.getString("hsInstitution", "");
+        Resume.HSC_YEAR = preferences.getString("hsYear", "");
+        Resume.HSC_CGPA = preferences.getString("hsCgpa", "");
+        Resume.SSC_DEGREE = preferences.getString("scDegree", "");
+        Resume.SSC_DEPARTMENT = preferences.getString("scDepartment", "");
+        Resume.SSC_INSTITUTION = preferences.getString("scInstitution", "");
+        Resume.SSC_YEAR = preferences.getString("scYear", "");
+        Resume.SSC_CGPA = preferences.getString("scCgpa", "");
+
+
     }
 
 

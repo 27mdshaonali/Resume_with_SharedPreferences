@@ -1,10 +1,10 @@
 package com.example.resumewithsharedpref;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,14 +33,13 @@ public class Resume extends AppCompatActivity {
     public static String SSC_YEAR = "";
     public static String SSC_CGPA = "";
 
-    public static String TABLE_LAYOUT_VIEW;
-
 
     boolean isEditMode = false;
-    private TextView userName, applicantName, applyingPosition, userEmail, userPhoneNumber, userDateOfBirth;
-    private EditText editUserName, editApplicantName, editApplyingPosition, editEmail, editPhoneNumber, editDateOfBirth;
+    private TextView userName, applicantName, applyingPosition, userEmail, userPhoneNumber, userDateOfBirth, userEducation;
+    private EditText editUserName, editApplicantName, editApplyingPosition, editEmail, editPhoneNumber, editDateOfBirth, editEducation;
     private Button editDataButton, saveDataButton;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +63,8 @@ public class Resume extends AppCompatActivity {
         editDataButton = findViewById(R.id.editData);
         saveDataButton = findViewById(R.id.saveData);
 
+        userEducation = findViewById(R.id.userEducation);
+        editEducation = findViewById(R.id.editEducation);
 
 
         //Setting Date from Previous Activity
@@ -74,6 +75,10 @@ public class Resume extends AppCompatActivity {
         userEmail.setText(EMAIL);
         userPhoneNumber.setText(PHONE_NUMBER);
         userDateOfBirth.setText(DATE_OF_BIRTH);
+
+        userEducation.setText(HONS_DEGREE + "     " + HONS_DEPARTMENT + "    " + HONS_INSTITUTION + "    " + HONS_YEAR + "   " + HONS_CGPA + "\n\n");
+        userEducation.append(HSC_DEGREE + "     " + HSC_DEPARTMENT + "     " + HSC_INSTITUTION + "     " + HSC_YEAR + "    " + HSC_CGPA + "\n\n");
+        userEducation.append(SSC_DEGREE + "     " + SSC_DEPARTMENT + "      " + SSC_INSTITUTION + "     " + SSC_YEAR + "     " + SSC_CGPA);
 
 
         // Set initial visibility for edit fields
@@ -120,6 +125,9 @@ public class Resume extends AppCompatActivity {
         editPhoneNumber.setVisibility(enableEdit ? View.VISIBLE : View.GONE);
         editDateOfBirth.setVisibility(enableEdit ? View.VISIBLE : View.GONE);
 
+        userEducation.setVisibility(enableEdit ? View.GONE : View.VISIBLE);
+        editEducation.setVisibility(enableEdit ? View.VISIBLE : View.GONE);
+
         // Update button visibility
         editDataButton.setVisibility(enableEdit ? View.GONE : View.VISIBLE);
         saveDataButton.setVisibility(enableEdit ? View.VISIBLE : View.GONE);
@@ -132,6 +140,8 @@ public class Resume extends AppCompatActivity {
             editEmail.setText(userEmail.getText().toString());
             editPhoneNumber.setText(userPhoneNumber.getText().toString());
             editDateOfBirth.setText(userDateOfBirth.getText().toString());
+            editEducation.setText(userEducation.getText().toString());
+            // Add more fields as needed
         }
     }
 
@@ -149,8 +159,8 @@ public class Resume extends AppCompatActivity {
         userEmail.setText(editEmail.getText().toString());
         userPhoneNumber.setText(editPhoneNumber.getText().toString());
         userDateOfBirth.setText(editDateOfBirth.getText().toString());
+        userEducation.setText(editEducation.getText().toString());
     }
-
 
 
 }
