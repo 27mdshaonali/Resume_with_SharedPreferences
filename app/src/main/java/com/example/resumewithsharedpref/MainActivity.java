@@ -90,8 +90,6 @@ public class MainActivity extends AppCompatActivity {
         // Initialize SharedPreferences
         preferences = getSharedPreferences("ResumeData", MODE_PRIVATE);
         editor = preferences.edit();
-
-
     }
 
     private void saveDataToSharedPreferences() {
@@ -151,22 +149,20 @@ public class MainActivity extends AppCompatActivity {
         Resume.SSC_INSTITUTION = preferences.getString("sscInstitution", "");
         Resume.SSC_YEAR = preferences.getString("sscYear", "");
         Resume.SSC_CGPA = preferences.getString("sscCGPA", "");
-
-        saveEducationDetails();
-
     }
 
     @SuppressLint("SetTextI18n")
     private void radioGroupOnClick() {
         if (radioBtnYes.isChecked()) {
-
             LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View view = layoutInflater.inflate(R.layout.work_experience, null);
 
             EditText startingDate = view.findViewById(R.id.startingDate);
             EditText endingDate = view.findViewById(R.id.endingDate);
+            EditText companyName = view.findViewById(R.id.companyName);
             EditText position = view.findViewById(R.id.position);
             EditText jobResponsibility = view.findViewById(R.id.jobResponsibility);
+            EditText location = view.findViewById(R.id.location);
             Button saveExperience = view.findViewById(R.id.saveExperience);
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -176,17 +172,20 @@ public class MainActivity extends AppCompatActivity {
 
             saveExperience.setOnClickListener(view1 -> {
                 try {
-                    String startingDateValue = startingDate.getText().toString();
-                    String endingDateValue = endingDate.getText().toString();
-                    String positionValue = position.getText().toString();
-                    String jobResponsibilityValue = jobResponsibility.getText().toString();
+                    String startingDateValue = startingDate.getText().toString().trim();
+                    String endingDateValue = endingDate.getText().toString().trim();
+                    String companyNameValue = companyName.getText().toString().trim();
+                    String positionValue = position.getText().toString().trim();
+                    String jobResponsibilityValue = jobResponsibility.getText().toString().trim();
+                    String locationValue = location.getText().toString().trim();
 
                     if (!startingDateValue.isEmpty() && !endingDateValue.isEmpty() && !positionValue.isEmpty() && !jobResponsibilityValue.isEmpty()) {
                         editor.putString("startingDate", startingDateValue);
                         editor.putString("endingDate", endingDateValue);
+                        editor.putString("companyName", companyNameValue);
                         editor.putString("position", positionValue);
                         editor.putString("jobResponsibility", jobResponsibilityValue);
-
+                        editor.putString("location", locationValue);
 
                         editor.apply();
 
@@ -195,115 +194,33 @@ public class MainActivity extends AppCompatActivity {
 
                         TextView savedStartingDate = viewSaved.findViewById(R.id.savedStartingDate);
                         TextView savedEndingDate = viewSaved.findViewById(R.id.savedEndingDate);
+                        TextView savedCompanyName = viewSaved.findViewById(R.id.savedCompanyName);
                         TextView savedPosition = viewSaved.findViewById(R.id.savedPosition);
                         TextView savedJobResponsibility = viewSaved.findViewById(R.id.savedJobResponsibility);
+                        TextView savedLocation = viewSaved.findViewById(R.id.savedLocation);
 
-                        savedStartingDate.setText("Starting Date: " + startingDateValue);
-                        savedEndingDate.setText("Ending Date: " + endingDateValue);
-                        savedPosition.setText("Position: " + positionValue);
-                        savedJobResponsibility.setText("Job Responsibility: " + jobResponsibilityValue);
-
-                        workExperienceExample.removeAllViews();
-
-                        workExperienceExample.addView(viewSaved);
+                        Resume.STARTING_DATE = preferences.getString("startingDate", "");
+                        Resume.ENDING_DATE = preferences.getString("endingDate", "");
+                        Resume.COMPANY_NAME = preferences.getString("companyName", "");
+                        Resume.JOB_TITLE = preferences.getString("position", "");
+                        Resume.JOB_RESPONSIBILITY = preferences.getString("jobResponsibility", "");
+                        Resume.COMPANY_LOCATION = preferences.getString("location", "");
 
 
-                        dialog.dismiss();  // Dismiss dialog only when the data is saved
-
+                        dialog.dismiss();
                     } else {
                         Toast.makeText(this, "Please fill all input fields!", Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     Log.e("MainActivity", "Error: ", e);
+                    Toast.makeText(this, "Enter Valid Values", Toast.LENGTH_SHORT).show();
                     Toast.makeText(this, "An error occurred", Toast.LENGTH_SHORT).show();
                 }
             });
 
             workExperienceExample.setVisibility(View.VISIBLE);
-            Toast.makeText(this, "Yes", Toast.LENGTH_SHORT).show();
         } else {
             workExperienceExample.setVisibility(View.GONE);
-            Toast.makeText(this, "No", Toast.LENGTH_SHORT).show();
         }
     }
-
-    public void educationDetails() {
-
-        String hoDegree = honsDegree.getText().toString();
-        String hoDepartment = honsDepartment.getText().toString();
-        String hoInstitution = honsInstitution.getText().toString();
-        String hoYear = honsYear.getText().toString();
-        String hoCgpa = honsCGPA.getText().toString();
-
-        String hsDegree = hscDegree.getText().toString();
-        String hsDepartment = hscDepartment.getText().toString();
-        String hsInstitution = hscInstitution.getText().toString();
-        String hsYear = hscYear.getText().toString();
-        String hsCgpa = hscCGPA.getText().toString();
-
-        String scDegree = sscDegree.getText().toString();
-        String scDepartment = sscDepartment.getText().toString();
-        String scInstitution = sscInstitution.getText().toString();
-        String scYear = sscYear.getText().toString();
-        String scCgpa = sscCGPA.getText().toString();
-
-        try {
-
-            if (!hoDegree.isEmpty() && !hoDepartment.isEmpty() && !hoInstitution.isEmpty() && !hoYear.isEmpty() && !hoCgpa.isEmpty()) {
-                editor.putString("hoDegree", hoDegree);
-                editor.putString("hoDepartment", hoDepartment);
-                editor.putString("hoInstitution", hoInstitution);
-                editor.putString("hoYear", hoYear);
-                editor.putString("hoCgpa", hoCgpa);
-                editor.apply();
-            }
-
-            if (!hsDegree.isEmpty() && !hsDepartment.isEmpty() && !hsInstitution.isEmpty() && !hsYear.isEmpty() && !hsCgpa.isEmpty()) {
-                editor.putString("hsDegree", hsDegree);
-                editor.putString("hsDepartment", hsDepartment);
-                editor.putString("hsInstitution", hsInstitution);
-                editor.putString("hsYear", hsYear);
-                editor.putString("hsCgpa", hsCgpa);
-                editor.apply();
-            }
-
-            if (!scDegree.isEmpty() && !scDepartment.isEmpty() && !scInstitution.isEmpty() && !scYear.isEmpty() && !scCgpa.isEmpty()) {
-                editor.putString("scDegree", scDegree);
-                editor.putString("scDepartment", scDepartment);
-                editor.putString("scInstitution", scInstitution);
-                editor.putString("scYear", scYear);
-                editor.putString("scCgpa", scCgpa);
-                editor.apply();
-            }
-
-        } catch (Exception e) {
-            Log.e("MainActivity", "Error: ", e);
-            Toast.makeText(this, "An error occurred", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    public void saveEducationDetails() {
-        educationDetails();
-
-        Resume.HONS_DEGREE = preferences.getString("hoDegree", "");
-        Resume.HONS_DEPARTMENT = preferences.getString("hoDepartment", "");
-        Resume.HONS_INSTITUTION = preferences.getString("hoInstitution", "");
-        Resume.HONS_YEAR = preferences.getString("hoYear", "");
-        Resume.HONS_CGPA = preferences.getString("hoCgpa", "");
-        Resume.HSC_DEGREE = preferences.getString("hsDegree", "");
-        Resume.HSC_DEPARTMENT = preferences.getString("hsDepartment", "");
-        Resume.HSC_INSTITUTION = preferences.getString("hsInstitution", "");
-        Resume.HSC_YEAR = preferences.getString("hsYear", "");
-        Resume.HSC_CGPA = preferences.getString("hsCgpa", "");
-        Resume.SSC_DEGREE = preferences.getString("scDegree", "");
-        Resume.SSC_DEPARTMENT = preferences.getString("scDepartment", "");
-        Resume.SSC_INSTITUTION = preferences.getString("scInstitution", "");
-        Resume.SSC_YEAR = preferences.getString("scYear", "");
-        Resume.SSC_CGPA = preferences.getString("scCgpa", "");
-
-
-    }
-
-
 }

@@ -2,223 +2,259 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingStart="10dp"
-    android:paddingTop="15dp"
-    android:paddingEnd="10dp"
-    android:paddingBottom="18dp"
-    app:circularflow_radiusInDP="10">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:gravity="start"
-        android:padding="8dp"
-        android:text="Add Work Experience :"
-        android:textSize="24sp"
-        tools:ignore="HardcodedText" />
-
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:ignore="UselessParent">
-
-
-        <TableLayout
-            android:id="@+id/tableLayoutView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:elevation="4dp"
-            android:padding="8dp"
-            android:stretchColumns="1"
-            android:weightSum="4">
-
-
-            <!-- Row 1: Header -->
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
-
-            <TableRow tools:ignore="UselessParent">
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="start"
-                    android:background="@android:color/darker_gray" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:padding="8dp"
-                    android:text="From :"
-                    android:textSize="18sp"
-                    tools:ignore="HardcodedText" />
-
-
-                <EditText
-                    android:id="@+id/startingDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="start"
-                    android:hint="DD/MM/YYYY"
-                    android:inputType="text|date"
-                    android:padding="8dp"
-                    android:textSize="18sp"
-                    tools:ignore="Autofill,HardcodedText" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:padding="8dp"
-                    android:text="To :"
-                    android:textSize="18sp"
-                    tools:ignore="HardcodedText" />
-
-                <EditText
-                    android:id="@+id/endingDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="start"
-                    android:hint="DD/MM/YYYY"
-                    android:inputType="text|date"
-                    android:padding="8dp"
-                    android:textSize="18sp"
-                    tools:ignore="Autofill,HardcodedText" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end"
-                    android:background="@android:color/darker_gray" />
-
-            </TableRow>
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
-
-            <!-- Row 2: Input Fields -->
-
-            <TableRow tools:ignore="UselessLeaf">
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="start"
-                    android:background="@android:color/darker_gray" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:padding="8dp"
-                    android:text="Position :"
-                    android:textSize="18sp"
-                    tools:ignore="HardcodedText" />
-
-                <EditText
-                    android:id="@+id/position"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="start"
-                    android:hint="junior android developer"
-                    android:inputType="text"
-                    android:padding="8dp"
-                    android:textSize="18sp"
-                    tools:ignore="Autofill,HardcodedText" />
-
-
-            </TableRow>
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
-
-            <!-- Row 3: Input Fields -->
-
-            <TableRow tools:ignore="UselessLeaf">
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="start"
-                    android:background="@android:color/darker_gray" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:padding="8dp"
-                    android:text="Job Responsibility :"
-                    android:textSize="18sp"
-                    tools:ignore="HardcodedText" />
-
-                <EditText
-                    android:id="@+id/jobResponsibility"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="start"
-                    android:hint="frontend design"
-                    android:inputType="text"
-                    android:padding="8dp"
-                    android:textSize="18sp"
-                    tools:ignore="Autofill,HardcodedText" />
-
-
-            </TableRow>
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
-
-
-        </TableLayout>
-
-    </HorizontalScrollView>
-
-
-    <soup.neumorphism.NeumorphButton
-        android:id="@+id/saveExperience"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:text="Save Experience"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:neumorph_backgroundColor="#0803A9F4"
-        app:neumorph_insetBottom="8dp"
-        app:neumorph_insetTop="10dp"
-        app:neumorph_lightSource="leftTop"
-        app:neumorph_shadowColorDark="#B8B5B5"
-        app:neumorph_shadowColorLight="#FFFFFF"
-        app:neumorph_shadowElevation="6dp"
-        app:neumorph_shapeType="flat"
-        app:neumorph_strokeColor="@color/black"
-        tools:ignore="HardcodedText,UnusedAttribute" />
+        android:padding="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+
+        <soup.neumorphism.NeumorphCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:neumorph_shapeType="pressed">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:gravity="start"
+                    android:padding="8dp"
+                    android:text="Add Work Experience :"
+                    android:textSize="24sp"
+                    tools:ignore="HardcodedText" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="UselessParent">
+
+
+                    <TableLayout
+                        android:id="@+id/tableLayoutView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:elevation="4dp"
+                        android:padding="8dp"
+                        android:stretchColumns="1"
+                        android:weightSum="4">
+
+
+                        <!-- Row 1: Header -->
+
+                        <TableRow tools:ignore="UselessParent">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:padding="8dp"
+                                android:text="From :"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText" />
+
+
+                            <EditText
+                                android:id="@+id/startingDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:gravity="start"
+                                android:hint="DD/MM/YYYY"
+                                android:inputType="text|date"
+                                android:padding="8dp"
+                                android:textSize="18sp"
+                                tools:ignore="Autofill,HardcodedText" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:padding="8dp"
+                                android:text="To :"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/endingDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:gravity="start"
+                                android:hint="DD/MM/YYYY"
+                                android:inputType="text|date"
+                                android:padding="8dp"
+                                android:textSize="18sp"
+                                tools:ignore="Autofill,HardcodedText" />
+
+                        </TableRow>
+
+                        <!-- Row 2: Input Fields -->
+
+                        <TableRow tools:ignore="UselessLeaf">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:padding="8dp"
+                                android:text="Company Name :"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/companyName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:gravity="start"
+                                android:hint="Deer Lifestyles"
+                                android:inputType="text"
+                                android:padding="8dp"
+                                android:textSize="18sp"
+                                tools:ignore="Autofill,HardcodedText" />
+
+
+                        </TableRow>
+
+                        <!-- Row 3: Input Fields -->
+
+                        <TableRow tools:ignore="UselessLeaf">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:padding="8dp"
+                                android:text="Job Title :"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/position"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:gravity="start"
+                                android:hint="junior android developer"
+                                android:inputType="text"
+                                android:padding="8dp"
+                                android:textSize="18sp"
+                                tools:ignore="Autofill,HardcodedText" />
+
+
+                        </TableRow>
+
+                        <!-- Row 4: Input Fields -->
+
+                        <TableRow tools:ignore="UselessLeaf">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:padding="8dp"
+                                android:text="Job Responsibility :"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/jobResponsibility"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:gravity="start"
+                                android:hint="frontend design"
+                                android:inputType="text"
+                                android:padding="8dp"
+                                android:textSize="18sp"
+                                tools:ignore="Autofill,HardcodedText" />
+
+
+                        </TableRow>
+
+                        <!-- Row 5: Input Fields -->
+
+                        <TableRow tools:ignore="UselessLeaf">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:padding="8dp"
+                                android:text="Company Location :"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/location"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:gravity="start"
+                                android:hint="Dhaka, Bangladesh"
+                                android:inputType="text"
+                                android:padding="8dp"
+                                android:textSize="18sp"
+                                tools:ignore="Autofill,HardcodedText" />
+
+
+                        </TableRow>
+
+
+                    </TableLayout>
+
+                </HorizontalScrollView>
+
+
+                <soup.neumorphism.NeumorphButton
+                    android:id="@+id/saveExperience"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="Save Experience"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    app:neumorph_backgroundColor="#0803A9F4"
+                    app:neumorph_insetBottom="8dp"
+                    app:neumorph_insetTop="10dp"
+                    app:neumorph_lightSource="leftTop"
+                    app:neumorph_shadowColorDark="#B8B5B5"
+                    app:neumorph_shadowColorLight="#FFFFFF"
+                    app:neumorph_shadowElevation="6dp"
+                    app:neumorph_shapeType="flat"
+                    app:neumorph_strokeColor="@color/black"
+                    tools:ignore="HardcodedText,UnusedAttribute" />
+
+
+            </LinearLayout>
+
+        </soup.neumorphism.NeumorphCardView>
+
+    </androidx.cardview.widget.CardView>
 
 
 </LinearLayout>

@@ -23,10 +23,18 @@
         tools:ignore="HardcodedText" />
 
     <TextView
+        android:id="@+id/savedCompanyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Company Name: "
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
         android:id="@+id/savedPosition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Position: "
+        android:text="Job Title: "
         android:textSize="16sp"
         tools:ignore="HardcodedText" />
 
@@ -37,4 +45,13 @@
         android:text="Job Responsibility: "
         android:textSize="16sp"
         tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/savedLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Company Location: "
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
 </LinearLayout>

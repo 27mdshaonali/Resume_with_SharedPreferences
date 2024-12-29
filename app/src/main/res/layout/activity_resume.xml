@@ -200,17 +200,8 @@
 
             <!--            Education Details-->
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="Education Details"
-                android:textSize="18sp"
-                tools:ignore="HardcodedText" />
-
-            <!-- Email Address -->
             <LinearLayout
+                android:id="@+id/linearLayoutEducationDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -246,6 +237,40 @@
                     android:visibility="gone"
                     tools:ignore="Autofill,HardcodedText" />
             </LinearLayout>
+
+
+            <!--            Experience Details-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Work Experience:"
+                android:padding="5dp"
+                android:textIsSelectable="true"
+                android:textSize="24sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/userWorkExperience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Work Experience"
+                android:padding="5dp"
+                android:textIsSelectable="true"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/editWorkExperience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="Edit Education"
+                android:inputType="textEmailAddress"
+                android:padding="5dp"
+                android:textSize="18sp"
+                android:visibility="gone"
+                tools:ignore="Autofill,HardcodedText" />
 
 
             <!-- Phone Number -->
